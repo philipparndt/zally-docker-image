@@ -24,31 +24,3 @@ jobs:
         working-directory: ./iac/images/server
         run: |
           ./build.sh
-
-  build-cli:
-    name: Release CLI
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # build and publish in parallel: linux/386, linux/amd64, linux/arm64, windows/386, windows/amd64, darwin/amd64, darwin/arm64
-        goos: [linux, windows, darwin]
-        goarch: [amd64, arm64]
-        exclude:
-          - goarch: arm64
-            goos: windows
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Download
-      working-directory: ./iac/images/server
-      run: |
-        ./download.sh
-
-    - uses: wangyoucao577/go-release-action@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        goos: ${{ matrix.goos }}
-        goarch: ${{ matrix.goarch }}
-        goversion: "https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz"
-        project_path: "./iac/images/server/zally/cli/zally"
-        binary_name: "zally"
