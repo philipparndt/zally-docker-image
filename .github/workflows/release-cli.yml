@@ -2,9 +2,9 @@ on:
   release:
     types: [created]
 
-  permissions:
-    contents: write
-    packages: write
+permissions:
+  contents: write
+  packages: write
 
 jobs:
   build-cli:
