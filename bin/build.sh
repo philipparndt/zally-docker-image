@@ -9,4 +9,5 @@ pushd "web-ui"
     yarn build
 popd
 
-docker compose build --project-name zally build
+export COMPOSE_PROJECT_NAME=zally
+docker compose build
