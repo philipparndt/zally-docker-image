@@ -7,7 +7,7 @@ env:
 
 jobs:
   build-cli:
-    name: Release CLI
+    name: Release Docker Images
     runs-on: ubuntu-latest
 
     steps:
