@@ -23,7 +23,6 @@ jobs:
         exclude:
           - goarch: "arm64"
             goos: windows
-        exclude:
           - goarch: "arm64"
             goos: darwin
 
