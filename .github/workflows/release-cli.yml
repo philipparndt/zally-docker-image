@@ -6,6 +6,11 @@ permissions:
   contents: write
   packages: write
 
+
+env:
+  ZALLY_VERSION: v2.1.1
+
+
 jobs:
   build-cli:
     name: Release CLI
@@ -23,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download
-        working-directory: ./iac/images/server
+        working-directory: ./bin
         run: |
           ./download.sh
 
@@ -33,5 +38,5 @@ jobs:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           goversion: "https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz"
-          project_path: "./iac/images/server/zally/cli/zally"
+          project_path: "./bin/zally/cli/zally"
           binary_name: "zally"
