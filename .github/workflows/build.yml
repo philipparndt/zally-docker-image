@@ -1,0 +1,22 @@
+name: Build zally
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build-vehub-zally-api-linter:
+    runs-on: vehub-docker
+    env:
+      ZALLY_VERSION: v2.1.1
+      DOCKER_REGISTRY: pes-alm-docker-prod.vegistry.vg.vector.int
+      DOCKER_BUILDKIT: 1
+
+    # Checkout
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build images
+        working-directory: ./iac/images
+        run: |
+          bash build.sh
