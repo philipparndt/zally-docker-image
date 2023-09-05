@@ -40,8 +40,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./iac/images/server
-          file: ./Dockerfile
-          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          file: ./iac/images/server/Dockerfile
+          platforms: linux/amd64
           push: true
           tags: |
             pharndt/zally-server:latest
@@ -52,8 +52,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./iac/images/web-ui
-          file: ./Dockerfile
-          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          file: ./iac/images/web-ui/Dockerfile
+          platforms: linux/amd64
           push: true
           tags: |
             pharndt/zally-web-ui:latest
