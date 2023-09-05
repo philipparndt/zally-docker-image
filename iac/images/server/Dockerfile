@@ -1,1 +1,1 @@
-FROM docker.io/library/zally-server
+FROM docker.io/library/zally_server

@@ -5,8 +5,8 @@ set -e
 cd zally
 
 pushd "web-ui"
-    yarn 
+    yarn
     yarn build
 popd
 
-docker compose build
+docker compose build --project-name zally build
