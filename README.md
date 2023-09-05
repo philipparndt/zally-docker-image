@@ -1,3 +1,3 @@
-# zally-helm-chart
+# zally-docker-image
 
-Bundle zally as docker image
+Pre-build docker image for zally.
