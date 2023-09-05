@@ -44,7 +44,7 @@ jobs:
           ./build.sh
 
       - name: Build server
-        id: docker_build
+        id: docker_server_build
         uses: docker/build-push-action@v4
         with:
           context: ./iac/images/server
@@ -56,7 +56,7 @@ jobs:
             pharndt/zally-server:${{env.ZALLY_VERSION}}
 
       - name: Build Web UI
-        id: docker_build
+        id: docker_web_ui_build
         uses: docker/build-push-action@v4
         with:
           context: ./iac/images/web-ui
