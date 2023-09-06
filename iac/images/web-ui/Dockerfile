@@ -1,1 +1,1 @@
-FROM docker.io/library/zally_web-ui
+FROM zally-web-ui
