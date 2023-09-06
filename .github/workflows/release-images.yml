@@ -41,8 +41,8 @@ jobs:
           docker tag zally-web-ui pharndt/zally-web-ui:${{env.ZALLY_VERSION}}
       - name: Push
         run: |
-          docker push zally-server:latest
-          docker push zally-server:${{env.ZALLY_VERSION}}
+          docker push pharndt/zally-server:latest
+          docker push pharndt/zally-server:${{env.ZALLY_VERSION}}
 
-          docker push zally-web-ui:latest
-          docker push zally-web-ui:${{env.ZALLY_VERSION}}
+          docker push pharndt/zally-web-ui:latest
+          docker push pharndt/zally-web-ui:${{env.ZALLY_VERSION}}

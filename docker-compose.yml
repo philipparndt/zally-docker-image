@@ -9,7 +9,7 @@
 version: '2.1'
 services:
   web-ui:
-    image: pharndt/zally-server:latest
+    image: pharndt/zally-web-ui:latest
     environment:
     - ZALLY_API_URL=${ZALLY_API_URL:-http://localhost:8000}
     depends_on:
@@ -25,7 +25,7 @@ services:
       retries: 10
 
   server:
-    image: ./server
+    image: pharndt/zally-server:latest
     depends_on:
     - postgres
     links:
