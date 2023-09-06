@@ -34,27 +34,15 @@ jobs:
         working-directory: ./bin
         run: |
           ./build.sh
+          docker tag zally-server pharndt/zally-server:latest
+          docker tag zally-server pharndt/zally-server:${{env.ZALLY_VERSION}}
 
-      - name: Build server
-        id: docker_server_build
-        uses: docker/build-push-action@v4
-        with:
-          context: ./iac/images/server
-          file: ./iac/images/server/Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: |
-            pharndt/zally-server:latest
-            pharndt/zally-server:${{env.ZALLY_VERSION}}
+          docker tag zally-web-ui pharndt/zally-web-ui:latest
+          docker tag zally-web-ui pharndt/zally-web-ui:${{env.ZALLY_VERSION}}
+      - name: Push
+        run: |
+          docker push zally-server:latest
+          docker push zally-server:${{env.ZALLY_VERSION}}
 
-      - name: Build Web UI
-        id: docker_web_ui_build
-        uses: docker/build-push-action@v4
-        with:
-          context: ./iac/images/web-ui
-          file: ./iac/images/web-ui/Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: |
-            pharndt/zally-web-ui:latest
-            pharndt/zally-web-ui:${{env.ZALLY_VERSION}}
+          docker push zally-web-ui:latest
+          docker push zally-web-ui:${{env.ZALLY_VERSION}}
